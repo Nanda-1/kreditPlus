@@ -5,8 +5,17 @@ import (
 	"kreditPlus/app/models"
 )
 
-func CreateUser(user *models.Customer) error {
-	return database.DB.Create(user).Error
+func StoreCostumer(costumer *models.Customer) (*models.Customer, error) {
+	result := database.DB.Create(costumer)
+	if result.Error != nil {
+		return nil, result.Error
+	}
+	return costumer, nil
+}
+func GetAllUsers() ([]models.Customer, error) {
+	var users []models.Customer
+	err := database.DB.Find(&users).Error
+	return users, err
 }
 
 func GetUserByID(id uint) (models.Customer, error) {

@@ -7,20 +7,20 @@ import (
 )
 
 type Customer struct {
-	CustomerID uint      `gorm:"primaryKey"`
-	NIK        string    `gorm:"unique;not null"`
-	FullName   string    `gorm:"not null"`
-	LegalName  string    `gorm:"not null"`
-	BirthPlace string    `gorm:"not null"`
-	BirthDate  time.Time `gorm:"not null"`
-	Salary     float64   `gorm:"not null"`
-	IDPhoto    string    `gorm:"not null"`
-	Selfie     string    `gorm:"not null"`
+	CustomerID uint    `gorm:"primaryKey" json:"customer_id"`
+	NIK        string  `gorm:"unique;not null" json:"nik"`
+	FullName   string  `gorm:"not null" json:"full_name"`
+	LegalName  string  `gorm:"not null" json:"legal_name"`
+	BirthPlace string  `gorm:"not null" json:"birth_place"`
+	BirthDate  string  `gorm:"not null" json:"birth_date"`
+	Salary     float64 `gorm:"not null" json:"salary"`
+	IDPhoto    string  `gorm:"not null" json:"photo_ktp"`
+	Selfie     string  `gorm:"not null" json:"photo_selfie"`
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
 	DeletedAt  gorm.DeletedAt `gorm:"index"`
-	Tenors     []Tenor        `gorm:"foreignKey:UserID"`
-	Loans      []Loan         `gorm:"foreignKey:UserID"`
+	// Tenors     []Tenor        `gorm:"foreignKey:UserID"`
+	// Loans      []Loan         `gorm:"foreignKey:UserID"`
 }
 
 type CustomerTenor struct {

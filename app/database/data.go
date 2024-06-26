@@ -18,7 +18,8 @@ func OpenDb(dsn string) (*gorm.DB, error) {
 		return nil, err
 	}
 	db.AutoMigrate(&models.Customer{}, &models.Tenor{}, &models.Limits{}, &models.Loan{}, &models.Notification{})
-	return db, nil
+	DB = db
+	return DB, nil
 }
 
 func ConnectToDB() *gorm.DB {

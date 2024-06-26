@@ -2,6 +2,7 @@ package main
 
 import (
 	"kreditPlus/app/database"
+	"kreditPlus/app/routes"
 	"log"
 )
 
@@ -13,5 +14,6 @@ func main() {
 		log.Panic("Can't connect to MySql!")
 	}
 
-	
+	setup := routes.SetupRoutes()
+	setup.Run(":8080")
 }
