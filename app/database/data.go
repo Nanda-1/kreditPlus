@@ -17,7 +17,7 @@ func OpenDb(dsn string) (*gorm.DB, error) {
 	if err != nil {
 		return nil, err
 	}
-	db.AutoMigrate(&models.Customer{}, &models.Tenor{}, &models.Limits{}, &models.Loan{}, &models.Notification{})
+	db.AutoMigrate(&models.Customer{}, &models.CustomerTenor{}, &models.Tenor{}, &models.Loan{})
 	DB = db
 	return DB, nil
 }

@@ -27,7 +27,7 @@ type CustomerTenor struct {
 	ID         uint    `gorm:"primaryKey"`
 	CustomerID uint    `gorm:"foreignKey:CustomerID"`
 	TenorID    uint    `gorm:""`
-	Limit      float64 `gorm:"foreignKey:Limit"`
+	Limit      float64 `gorm:""`
 	CreatedAt  time.Time
 	UpdatedAt  time.Time
 	DeletedAt  gorm.DeletedAt `gorm:"index"`

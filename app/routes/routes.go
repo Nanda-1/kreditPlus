@@ -11,9 +11,16 @@ func SetupRoutes() *gin.Engine {
 
 	r.Use(gin.Logger(), gin.Recovery())
 
-	custumerRoute := r.Group("api/customer")
-	custumerRoute.POST("/create", controllers.NewCostumerRepo().CreatedCostumer)
-	custumerRoute.GET("/get-all", controllers.NewCostumerRepo().Index)
+	customerRoute := r.Group("api/customers")
+	{
+		customerRoute.POST("/create", controllers.NewCostumerRepo().CreatedCostumer)
+		customerRoute.GET("/get-all", controllers.NewCostumerRepo().Index)
+	}
+
+	loanRoute := r.Group("api/loans")
+	{
+		loanRoute.POST("/create", controllers.NewLoanRepo().CreateLoan)
+	}
 
 	return r
 }
