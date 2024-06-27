@@ -1,5 +1,5 @@
 ERD
-![alt text]app/static/img/(image.png)
+![alt text](app/static/img/image.png)
 
 Arsitektur
-![alt text]app/static/img/(image-1.png)
+![alt text](app/static/img/image-1.png)
